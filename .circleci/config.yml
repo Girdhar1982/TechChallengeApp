@@ -270,6 +270,11 @@ workflows:
           type: approval
           requires:
             - plan-apply
+          filters:
+            branches:
+              only: master
+            tags:
+              ignore: /.*/
       - apply:
           requires:
             - hold-apply 
@@ -280,9 +285,14 @@ workflows:
           type: approval
           requires:
             - apply
+          filters:
+            branches:
+              only: master
+            tags:
+              ignore: /.*/
       - build-image:
           requires: 
-            - hold-build
+            - hold-build          
       - deploy:
           requires: 
             - build
