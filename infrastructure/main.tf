@@ -19,12 +19,12 @@ module "techchallange_database" {
 }
 
 module "compute" {
-  source              = "./compute"
-  tag_prefix          = var.tag_prefix
-  private_subnet_a_id = module.techchallange_network.private_subnet_a_id
-  private_subnet_b_id = module.techchallange_network.private_subnet_b_id
-  vpc_id              = module.techchallange_network.vpc_id
-  loadbalancer_tg_arn = module.techchallange_network.loadbalancer_tg_arn
+  source               = "./compute"
+  tag_prefix           = var.tag_prefix
+  private_subnet_a_id  = module.techchallange_network.private_subnet_a_id
+  private_subnet_b_id  = module.techchallange_network.private_subnet_b_id
+  vpc_id               = module.techchallange_network.vpc_id
+  loadbalancer_tg_arn  = module.techchallange_network.loadbalancer_tg_arn
   app_securitygroup_id = module.techchallange_network.app_securitygroup_id
 
   depends_on = [

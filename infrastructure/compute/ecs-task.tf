@@ -12,7 +12,7 @@ resource "aws_ecs_task_definition" "ecstask_definition_techchallenge" {
                     "awslogs-group": "${aws_cloudwatch_log_group.cloudwatch_log_group.name}",
                     "awslogs-region": "ap-southeast-2",
                     "awslogs-create-group": "true",
-                    "awslogs-stream-prefix": "techchallenge"
+                    "awslogs-stream-prefix": "${var.tag_prefix}"
                 }
             },
       "portMappings": [

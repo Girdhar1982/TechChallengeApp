@@ -18,6 +18,18 @@ resource "aws_security_group" "app_security_group" {
     self        = false
   }
 
+  ingress {
+    description      = "port 3000 container"
+    from_port        = 3000
+    to_port          = 3000
+    protocol         = "tcp"
+    security_groups  = [aws_security_group.loadbalancer_security_group.id]
+    cidr_blocks      = []
+    ipv6_cidr_blocks = []
+    prefix_list_ids  = []
+    self             = false
+  }
+
   egress {
     protocol    = "-1"
     from_port   = 0

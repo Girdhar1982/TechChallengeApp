@@ -34,7 +34,7 @@ resource "aws_lb_listener" "loadbalancer_listener" {
     type             = "forward"
     target_group_arn = aws_lb_target_group.loadbalancer_targetgroup.arn
   }
-    tags = {
+  tags = {
     Name = "${var.tag_prefix}-loadbalancer"
   }
 }

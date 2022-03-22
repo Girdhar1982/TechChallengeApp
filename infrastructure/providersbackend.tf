@@ -24,7 +24,7 @@ provider "aws" {
 }
 
 resource "aws_dynamodb_table" "terraform_locks" {
-  name         = "${var.dynamodb_table_statelock}"
+  name         = var.dynamodb_table_statelock
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "LockID"
   attribute {
@@ -36,7 +36,7 @@ resource "aws_dynamodb_table" "terraform_locks" {
     Name = "${var.tag_prefix}-dynamo"
   }
 
-   lifecycle {
+  lifecycle {
     prevent_destroy = true
   }
 
