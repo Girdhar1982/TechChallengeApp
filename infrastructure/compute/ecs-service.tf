@@ -1,5 +1,5 @@
 resource "aws_ecs_service" "techchallenge_svc" {
-  name            = "techchallenge-svc"
+  name            = "${var.tag_prefix}-svc"
   task_definition = aws_ecs_task_definition.ecstask_definition_techchallenge.arn
   cluster         = aws_ecs_cluster.ecs_cluster.id
   launch_type     = "FARGATE"
@@ -14,7 +14,6 @@ resource "aws_ecs_service" "techchallenge_svc" {
   network_configuration {
     subnets          = [var.private_subnet_a_id, var.private_subnet_b_id]
     assign_public_ip = false
-    security_groups  = [aws_security_group.ecs_security_group.id]
+    security_groups  = [var.app_securitygroup_id]
   }
-
 }
