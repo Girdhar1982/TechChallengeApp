@@ -1,4 +1,3 @@
-
 resource "aws_eip" "eip_nat_gateway_a" {
   vpc = true
   tags = {
@@ -22,7 +21,7 @@ resource "aws_route_table" "private_route_table_a" {
   }
 
   tags = {
-    Name = "${var.tag_prefix}-privateroutetable"
+    Name = "${var.tag_prefix}-privateroutetable_b"
   }
 }
 
@@ -35,4 +34,3 @@ resource "aws_route_table_association" "table_a_private_subnet_b_association" {
   subnet_id      = aws_subnet.private_subnet_b.id
   route_table_id = aws_route_table.private_route_table_a.id
 }
-

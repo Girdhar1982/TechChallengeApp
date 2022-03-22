@@ -14,7 +14,7 @@ resource "aws_alb" "app_loadbalancer" {
 
 resource "aws_lb_target_group" "loadbalancer_targetgroup" {
   name        = "loadbalancer-targetgroup"
-  port        = 80
+  port        = 3000
   protocol    = "HTTP"
   target_type = "ip"
   vpc_id      = aws_vpc.vpc.id

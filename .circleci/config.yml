@@ -276,13 +276,9 @@ workflows:
       - build:
           requires: 
             - apply
-      - hold-build:
-          type: approval
-          requires:
-            - apply
       - build-image:
           requires: 
-            - hold-build
+            - apply
       - deploy:
           requires: 
             - build
