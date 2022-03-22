@@ -19,6 +19,7 @@ jobs:
             TF_DBPASSWORD    = "${TF_DBPASSWORD}"
             TF_DBSUBNETGROUP = "dbsubnetgroup"
             tag_prefix = "apptechc"
+            dynamodb_table_statelock ="apptechc-statelocktable"
             EOF
             if [[ -f variables.tfvars ]]
             then
